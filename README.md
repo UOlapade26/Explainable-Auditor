@@ -13,7 +13,17 @@ outputs in the notebook so that every figure and table can be traced back to the
 that produced it.
 
 ---
+## The deployed auditor
 
+![A transaction flagged as fraud, with SHAP and LIME explanations](screenshots/fraud_case.jpg)
+
+*A TRANSFER draining the origin account to zero. SHAP attributes the decision mainly
+to `errorBalanceOrig`; LIME's local surrogate leads with `oldbalanceOrg`. Both reach
+the same verdict by different routes — the disagreement quantified in Section 8.2.*
+
+![The same interface clearing a routine payment](screenshots/legit_case.jpg)
+
+*The same interface clearing a routine PAYMENT.*
 ## The question I was actually asking
 
 The literature already establishes that gradient boosting detects fraud well. My
