@@ -74,8 +74,8 @@ because with five folds the test cannot resolve differences this small either wa
 | MLP | 0.8695 | 0.6618 | - | +0.1947 |
 
 This is the finding I did not expect and did not want. **On the fraud class, ECGB has
-the lowest Jaccard consistency of the tree models, and DASH — the cheap post-hoc
-control — has the highest.** ECGB does lead on the *legitimate* class (Jaccard 0.7955,
+the lowest Jaccard consistency of the tree models, and DASH the cheap post-hoc
+control - has the highest.** ECGB does lead on the *legitimate* class (Jaccard 0.7955,
 the highest of any model), and its neighbour-versus-random gap is second only to
 XGBoost, meaning its explanations do track transaction similarity rather than
 collapsing onto one generic answer. But the headline claim I set out to make about
