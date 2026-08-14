@@ -61,7 +61,7 @@ p = 0.0625 for every comparison, which is simply the smallest value the test can
 return at n = 5. I report this rather than leaning on the leaderboard ordering,
 because with five folds the test cannot resolve differences this small either way.
 
-### Explanation consistency — fraud class
+### Explanation consistency - fraud class
 
 | Model | Cosine | Jaccard@5 | Random-pair Jaccard | Gap |
 |---|---|---|---|---|
