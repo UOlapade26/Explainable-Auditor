@@ -21,7 +21,7 @@ question was a different one: can the *explanations* we attach to such a model b
 trusted?
 
 An explanation that changes arbitrarily between two near-identical transactions is of
-no use to an investigator and no defence to a regulator — regardless of how accurate
+no use to an investigator and no defence to a regulator, regardless of how accurate
 the underlying prediction is. So I measure explanation consistency directly, and I
 propose a model that tries to earn it during training rather than smooth it on
 afterwards.
@@ -33,7 +33,7 @@ for the synthetic row toward its parent's. At `lambda = 0` it reduces exactly to
 ordinary logistic boosting, which is what makes the ablation a clean comparison.
 
 **DASH (Diverse-Aggregated SHAP)** is my control condition. It trains five diverse
-CatBoost models and averages their post-hoc SHAP values — the obvious cheap way to
+CatBoost models and averages their post-hoc SHAP values, the obvious cheap way to
 stabilise explanations, requiring no custom objective at all. If ECGB cannot beat
 DASH, the custom objective does not earn its complexity.
 
@@ -65,13 +65,13 @@ because with five folds the test cannot resolve differences this small either wa
 
 | Model | Cosine | Jaccard@5 | Random-pair Jaccard | Gap |
 |---|---|---|---|---|
-| **DASH** | 0.9442 | **0.8279** | — | +0.1738 |
+| **DASH** | 0.9442 | **0.8279** | - | +0.1738 |
 | CatBoost | 0.8723 | 0.7663 | 0.5978 | +0.1686 |
 | LightGBM | 0.9227 | 0.7473 | 0.5633 | +0.1840 |
 | XGBoost | 0.9215 | 0.7356 | 0.5244 | **+0.2112** |
 | Decision Tree | 0.9048 | 0.7263 | 0.5879 | +0.1385 |
-| ECGB | 0.8813 | 0.7040 | — | +0.1989 |
-| MLP | 0.8695 | 0.6618 | — | +0.1947 |
+| ECGB | 0.8813 | 0.7040 | - | +0.1989 |
+| MLP | 0.8695 | 0.6618 | - | +0.1947 |
 
 This is the finding I did not expect and did not want. **On the fraud class, ECGB has
 the lowest Jaccard consistency of the tree models, and DASH — the cheap post-hoc
@@ -143,7 +143,7 @@ containing `data/`, `checkpoints/`, `models/`, `logs/`, `figures/`,
 | 3 | Feature engineering, partitioning, SMOTE |
 | 4 | XGBoost, LightGBM, CatBoost, Decision Tree, MLP |
 | 5 | ECGB: core, search, ablation, cross-validation, final model, mechanism test |
-| 6 | Explanation consistency — the primary research question |
+| 6 | Explanation consistency - the primary research question |
 | 7 | DASH, the post-hoc aggregation control |
 | 8 | LIME fidelity, and its agreement with SHAP |
 | 9 | Feature importance across all models |
@@ -165,7 +165,7 @@ point the `PAYSIM_CSV` environment variable at it.
 ### On Colab
 
 Open the notebook, put `paysim.csv` in your Drive root, and run from the top. A GPU
-runtime is assumed — the boosting sections are configured for CUDA and the full
+runtime is assumed the boosting sections are configured for CUDA and the full
 pipeline takes several hours on a T4.
 
 ### Locally
@@ -206,7 +206,7 @@ Section 11 generates a self-contained four-tier application under
   explanation, timestamp and user, which is what lets the system satisfy the EU AI
   Act transparency duty and the GDPR Article 22 right to a meaningful explanation
 
-The model is wrapped exactly as evaluated in Section 5 — nothing is retrained or
+The model is wrapped exactly as evaluated in Section 5 - nothing is retrained or
 re-thresholded on the way into the container, so the deployed system behaves the way
 the measured one does.
 
@@ -237,7 +237,7 @@ distribution of `best_iteration` explicitly so the failure cannot recur silently
 
 **Ranking by PR-AUC alone selected a degenerate model.** My selection step originally
 sorted candidates by raw PR-AUC, and on one run chose a trial scoring 0.997 PR-AUC at
-0.028 precision — a model flagging nearly every transaction as fraud. PR-AUC is
+0.028 precision - a model flagging nearly every transaction as fraud. PR-AUC is
 threshold-independent and does not penalise that at the threshold I actually deploy
 at. Selection now requires a minimum precision before ranking survivors by F1, and
 prints a warning whenever the highest-PR-AUC trial is not the one chosen.
