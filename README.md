@@ -196,13 +196,13 @@ and therefore which section to continue from.
 Section 11 generates a self-contained four-tier application under
 `deployment/explainable_auditor/`:
 
-- **Presentation** — a Dash interface, styled as a case file, where an investigator
+- **Presentation** a Dash interface, styled as a case file, where an investigator
   submits a transaction and sees the prediction with SHAP and LIME panels
-- **Application** — a Flask REST API (`/predict`, `/explain`, `/health`,
+- **Application** a Flask REST API (`/predict`, `/explain`, `/health`,
   `/audit/export/<id>`)
-- **Inference** — the saved ECGB booster with a SHAP `TreeExplainer` and a LIME local
+- **Inference** the saved ECGB booster with a SHAP `TreeExplainer` and a LIME local
   surrogate, returning the surrogate's fidelity R² alongside the explanation
-- **Persistence** — a MongoDB audit store recording model id, inputs, prediction,
+- **Persistence** a MongoDB audit store recording model id, inputs, prediction,
   explanation, timestamp and user, which is what lets the system satisfy the EU AI
   Act transparency duty and the GDPR Article 22 right to a meaningful explanation
 
